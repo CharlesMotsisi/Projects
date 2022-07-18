@@ -1,20 +1,46 @@
-function login(){
+import "../css/login.css";
+import {Link} from "react-router-dom";
+import React, {useEffect, useState} from 'react';
+import { useHistory } from "react-router-dom";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import {auth} from '../config/firebase'
+import GoogleButton from "react-google-button";
+
+
+
+const Login = () =>{
+   
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState("");
+    let history = useHistory();
+
+    const access = (()=>{
+        signInWithEmailAndPassword(auth, email, password).then(()=>{
+            history.push("/home");
+        }).catch(()=>{
+            alert("Error Captured");
+        })
+       
+    })
+
     return(
         <div>
-            <h1>Welcome Back</h1>
+            <h1>Welcome</h1>
             <h3>Manage Your Task Checklist Easily</h3>
-            
-            <h4>Email</h4>
-            <input type="email" placeholder="Enter your email"/>
+                <div className="inputs">
+                    <h4>Email</h4>
+                    <input type="email" placeholder="Enter your email" onChange={(e)=> setEmail(e.target.value)}/>
 
-            <h4>Password</h4>
-            <input type="password" placeholder="Enter your password"/>
-
-            <button>Login</button><br></br>
-            <h3>OR</h3>
-            <button>Sign in with Google</button>
+                    <h4>Password</h4>
+                    <input type="password" placeholder="Enter your password" onChange={(e)=> setPassword(e.target.value)}/>
+                </div>
+            <button className="login" onClick={access}>Login</button><br></br>
+            <p>Don't have an account? <Link to="/sign-up">Create one</Link></p>
+            <h2>OR</h2>
+            <GoogleButton type="light">Sign in with google</GoogleButton>
+            {/*<button className="btnGoogle">Sign in with Google</button>*/}
         </div>
     )
 }
 
-export default login;
+export default Login;

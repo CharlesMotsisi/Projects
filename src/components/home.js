@@ -1,7 +1,18 @@
 import React, {useState} from 'react'
 import image from '../components/pic.jpg';
 import '../css/home.css'
-function Home(){
+function Home(props){
+    const [task, setTask] = useState("");
+    const [priority, setPriority] = useState("");
+
+    const taskToDo = (()=>{
+        const theTasks = {
+            task:task,
+            priority:priority
+        }
+
+        props.taskToDo(task,priority);
+    })
     return(
         <div>
             <div className="Header">
@@ -10,15 +21,15 @@ function Home(){
                 <button className='logoutBtn'>Logout</button>
             </div>
             <div className="container">
-                <input type="text" placeholder="Add New Task"/>
+                <input type="text" placeholder="Add New Task" onChange={(e)=> setTask(e.target.value)}/>
 
-                <select>
+                <select onChange={(e)=> setPriority(e.target.value)}>
                     <option>High</option>
                     <option>Medium</option>
                     <option>Low</option>
                 </select>
 
-                <button className='btnAdd'>Add</button>
+                <button className='btnAdd' onClick={taskToDo}>Add</button>
             </div>
         </div>
     )

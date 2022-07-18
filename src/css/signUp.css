@@ -1,0 +1,17 @@
+body{
+    margin:0;
+    padding: 0;
+}
+input{
+    
+    height: 2.5rem;
+    width: 30rem;
+    font-size: 14px;
+    border-style: none;
+}
+p{
+    text-align: center;
+    margin-left: 4.5rem;
+    color: blue;
+    font-weight: bolder;
+}
