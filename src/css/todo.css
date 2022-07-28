@@ -1,0 +1,40 @@
+.delete-icon{
+    height: 2.5rem;
+    width: 5rem;
+    background-color: lightblue;
+    border-color: transparent;
+    margin-left: 30rem;
+}
+.todo-row{
+    align-items: center;
+    background-color: aliceblue;
+    width: 40rem;
+    height: 3.5rem;
+    display: flex;
+    margin-left: -40px;
+    margin-top: 20px;
+    
+}
+
+.display{
+    margin-left: 25rem;
+    background-color: transparent;
+    flex-wrap: wrap;
+    
+}
+
+.High{
+    border-bottom: 2px solid red;
+    width: 100%;
+    margin-top: 13px;
+}
+.Medium{
+    border-bottom: 2px solid yellow;
+    width: 100%;
+    margin-top: 13px;
+}
+.Low{
+    border-bottom: 2px solid green;
+    width: 100%;
+    margin-top: 13px;
+}

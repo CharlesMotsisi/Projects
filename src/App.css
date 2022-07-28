@@ -6,3 +6,10 @@ body{
   background-color: grey;
   font-family: 'lato';
 }
+.complete{
+  text-decoration: line-through;
+  opacity: 0.4;
+}
+.todo-form{
+  margin-bottom: 32px;
+}

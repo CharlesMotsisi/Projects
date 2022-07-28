@@ -1,12 +1,18 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect, useRef} from 'react'
 import image from '../components/pic.jpg';
 import '../css/home.css'
 import { useHistory } from "react-router-dom";
+import Todo from './todo'
 
 function Home(props){
     const [task, setTask] = useState("");
-    const [priority, setPriority] = useState("");
+    const [priority, setPriority] = useState("High");
 
+    const focus = useRef(null);
+
+    useEffect(()=>{
+        focus.current.focus();
+    })
     const taskToDo = (()=>{
         const theTasks = {
             task:task,
@@ -24,15 +30,27 @@ function Home(props){
 
     const handleChange = (e) =>{
         setTask(e.target.value);
+        
+    }
+
+    const handleChangePrio = (e) =>{
+    
+        setPriority(e.target.value);
+        
     }
     const handleSubmit = (e) =>{
         e.preventDefault();
         props.onSubmit({
             id: Math.floor(Math.random()*10000),
-            text: task
+            text: task,
+            priority: priority
         })
         setTask('');
+        setPriority('');
+        
     }
+
+
     return(
         <div>
             <div className="Header">
@@ -40,19 +58,22 @@ function Home(props){
                 <img src={image} alt="Logo"/>
                 <button className='logoutBtn' onClick={out}>Logout</button>
             </div>
-            <div className="container" onSubmit={handleSubmit}>
+                <div className="container" onSubmit={handleSubmit}>
                 <input type="text" placeholder="Add New Task" value={task}
-                  onChange={handleChange} /*onChange={(e)=> setTask(e.target.value)}*//>
-
-                <select onChange={(e)=> setPriority(e.target.value)}>
-                    <option>High</option>
-                    <option>Medium</option>
-                    <option>Low</option>
+                  onChange={handleChange} ref={focus}/*onChange={(e)=> setTask(e.target.value)}*//>
+                <select onChange={handleChangePrio} value={priority}>
+                    <option value={"High"}>High</option>
+                    <option value={"Medium"}>Medium</option>
+                    <option value={"Low"}>Low</option>
+                    
                 </select>
 
                 <button className='btnAdd' onClick={handleSubmit}>Add</button>
+                
             </div>
+            
         </div>
+        
     )
 }
 
