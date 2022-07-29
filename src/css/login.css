@@ -31,6 +31,7 @@ h4{
     font-style: italic;
     padding-left: 10px;
     color: blue;
+    margin-left: 20rem;
 }
 .inputs{
     align-items: center;
@@ -45,6 +46,8 @@ input{
     border-style: none;
     background-color: lightblue;
     text-decoration: black;
+    margin-left: 20rem;
+    
 }
 .login{
     width: 8rem;
@@ -52,6 +55,9 @@ input{
     margin-left: 28rem;
     margin-top: 20px;
     border-radius: 12%;
+    margin-left: 48rem;
+    
+    
 }
 .btnGoogle{
     width: 8rem;
@@ -59,5 +65,7 @@ input{
     margin-left: 28rem;
     margin-top: 20px;
     border-radius: 12%;
+    
+    
 }
 

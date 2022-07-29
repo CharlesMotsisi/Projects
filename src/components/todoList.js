@@ -1,11 +1,13 @@
 import React, {useState} from "react";
 import Home from "../components/home";
-import Todo from "../components/todo"
+import Todo from "../components/todo";
+import {db} from '../config/firebase'
+import {addDoc,collection} from 'firebase/firestore'
 
 function TodoList() {
 
     const [todos,setTodos] = useState([])
-    const [prio,setPrio] = useState('');
+    /*const [prio,setPrio] = useState('');*/
 
     const addTodo = (todo) =>{
         console.log(todo)
@@ -13,35 +15,37 @@ function TodoList() {
             return;
         }
 
+        
         const  newTodos = [todo,...todos];
         
         
         setTodos(newTodos);
+        
        
     }
     
-    const addPriority = () =>{
+    /*const addPriority = () =>{
         
         const newPrio = prio;
         setPrio(newPrio);
 
         console.log(newPrio);
-    }
+    }*/
 
-    const updateTodo = (todoId, newValue) =>{
+    /*const updateTodo = (todoId, newValue) =>{
         if(!newValue.text || /^\s*$/.test(newValue.text)){
             return;
         }
 
         setTodos(prev=>prev.map(item=> (item.id===todoId ? newValue:item)));
-    }
+    }*/
 
     const removeTodo = (id) =>{
         const removeArr = [...todos].filter(todo=>todo.id !== id)
         setTodos(removeArr);
     }
 
-    const completeTodo = (id) =>{
+    /*const completeTodo = (id) =>{
         let updatedTodos = todos.map(todo=>{
             if(todo.id===id){
                 todo.isComplete = !todo.isComplete
@@ -49,14 +53,14 @@ function TodoList() {
             return todo;
         })
         setTodos(updatedTodos);
-    }
+    }*/
     
     return (
         <div>
-            <Home onSubmit={addTodo} addPriority={addPriority}/>
+            <Home onSubmit={addTodo} /*addPriority={addPriority}*//>
             
-            <Todo todos={todos} completeTodo={completeTodo} removeTodo={removeTodo} 
-              updateTodo = {updateTodo} prio={prio}/>
+            <Todo todos={todos} removeTodo={removeTodo} 
+              /*prio={prio}*//>
         </div>
     )
 }

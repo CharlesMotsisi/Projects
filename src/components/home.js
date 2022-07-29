@@ -3,10 +3,12 @@ import image from '../components/pic.jpg';
 import '../css/home.css'
 import { useHistory } from "react-router-dom";
 import Todo from './todo'
+import {collection, getDocs,addDoc} from 'firebase/firestore'
+import {db} from '../config/firebase'
 
 function Home(props){
     const [task, setTask] = useState("");
-    const [priority, setPriority] = useState("High");
+    const [priority, setPriority] = useState("");
 
     const focus = useRef(null);
 
@@ -40,6 +42,8 @@ function Home(props){
     }
     const handleSubmit = (e) =>{
         e.preventDefault();
+       
+        const collectionRef = collection(db,"tasks");
         props.onSubmit({
             id: Math.floor(Math.random()*10000),
             text: task,
@@ -47,6 +51,13 @@ function Home(props){
         })
         setTask('');
         setPriority('');
+
+        addDoc(collectionRef,{task,priority}).then(()=>{
+            alert("Successfully Added Task");
+        }).catch(()=>{
+            alert("Error adding task and priority");
+        });
+        
         
     }
 

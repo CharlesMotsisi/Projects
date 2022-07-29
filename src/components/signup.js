@@ -48,7 +48,7 @@ function Signup(){
             <button className="login" onClick={access}>Create Account</button><br></br>
             <p>Already have an account? <Link to="/">Login</Link></p>
             <h2>OR</h2>
-            <GoogleButton type="light" style={{background:"white",marginLeft:"25rem"}}>Sign in with google</GoogleButton>
+            <GoogleButton type="light" style={{background:"white",marginLeft:"45rem"}}>Sign in with google</GoogleButton>
             {/*<button className="btnGoogle">Sign in with Google</button>*/}
         </div>
     )

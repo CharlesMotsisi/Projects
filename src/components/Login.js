@@ -57,7 +57,7 @@ const Login = () =>{
             <button className="login" onClick={access}>Login</button><br></br>
             <p>Don't have an account? <Link to="/sign-up">Create one</Link></p>
             <h2>OR</h2>
-            <GoogleButton type="light" style={{background:"white",marginLeft:"25rem"}} onClick={handleGoogleSignIn}>Sign in with google</GoogleButton>
+            <GoogleButton type="light" style={{background:"white",marginLeft:"45rem"}} onClick={handleGoogleSignIn}>Sign in with google</GoogleButton>
             {/*<button className="btnGoogle">Sign in with Google</button>*/}
             
         </div>
