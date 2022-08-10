@@ -8,7 +8,7 @@ import {db} from '../config/firebase'
 
 function Home(props){
     const [task, setTask] = useState("");
-    const [priority, setPriority] = useState("");
+    const [priority, setPriority] = useState("High");
 
     const focus = useRef(null);
 

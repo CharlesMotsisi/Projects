@@ -1,7 +1,9 @@
 body{
     margin: 0;
     padding: 0;
-    /*background-image: url("../components/todo.jpg");*/
+    background-image: url("../components/todo.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
     
 }
 h1{
@@ -34,38 +36,54 @@ h4{
     margin-left: 20rem;
 }
 .inputs{
+    height: 23vh;
+    width: 60vw;
     align-items: center;
     margin-top: 50px;
-    margin-left: 17rem;
+    background: transparent;
+    margin-left: 20vw;
 }
-input{
+.inputs input{
     
-    height: 2.5rem;
-    width: 30rem;
-    font-size: 14px;
-    border-style: none;
-    background-color: lightblue;
-    text-decoration: black;
-    margin-left: 20rem;
-    
+    height: 5vh;
+    width: 35vw;
+    margin-left: 12.5vw;
+    font-size: 16px;
+    margin-top: 4vh;
+    border-radius: 15px;
+    background-color: rgb(207, 212, 200);
+    text-decoration: none;
+    font-size: medium;
+    /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
+
+
 }
 .login{
-    width: 8rem;
-    height: 2rem;
-    margin-left: 28rem;
-    margin-top: 20px;
-    border-radius: 12%;
-    margin-left: 48rem;
-    
+    width: 10vw;
+    height: 5vh;
+    margin-left: 46vw;
+    border-radius: 15px;
+    margin-bottom: 2vh;
+    background: rgba(174, 181, 221, 0.473);    
+}
+.login:hover{
+
+    background: rgba(25, 28, 46, 0.473);
+    color: blue;
     
 }
+
+
 .btnGoogle{
     width: 8rem;
     height: 2rem;
     margin-left: 28rem;
     margin-top: 20px;
     border-radius: 12%;
-    
-    
+
 }
 
+.para{
+    margin-right: 3vw;
+
+}
