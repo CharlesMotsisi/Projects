@@ -11,7 +11,7 @@ import GoogleButton from "react-google-button";
 
 function Signup(){
 
-    //const [name, setName] = useState('');
+    const [name, setName] = useState('');
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     
@@ -29,12 +29,17 @@ function Signup(){
     }
 
     const access = (()=>{
-       createUserWithEmailAndPassword(auth, email, password).then(()=>{
-            history.push("/");
-            alert("Successfuly Added");
-        }).catch(()=>{
-            alert("Error Captured!!");
-        })
+        if(name === email){
+            return;
+        }else{
+            createUserWithEmailAndPassword(auth, email, password).then(()=>{
+                history.push("/");
+                alert("Successfuly Added");
+            }).catch(()=>{
+                alert("Fill all the fields");
+            })
+        }
+       
 
     })
     
@@ -48,8 +53,8 @@ function Signup(){
             <h3>Manage Your Task Checklist Easily</h3>
             
                  <div className="inputs">
-                    {/*<h4>Full Name</h4>
-                    <input type="text" placeholder="Enter your name" onChange={(e)=> setName(e.target.value)}/>*/}
+                    
+                    <input type="text" placeholder="Enter your name" onChange={(e)=> setName(e.target.value)}/>
                     
                     <input type="email" placeholder="Enter your email"  onChange={(e)=> setEmail(e.target.value)}/>
 
@@ -64,7 +69,7 @@ function Signup(){
                 <h2>OR</h2>
             </div>
             
-            <GoogleButton className="google-btn" type="light" style={{background:"white",marginLeft:"43vw", marginTop:"2vh",marginRight:"0vw"}} onClick={handleGoogleSignIn}>Sign in with google</GoogleButton>
+            <GoogleButton className="google-btn" type="light" style={{background:"white",marginLeft:"43vw", marginTop:"2vh"}} onClick={handleGoogleSignIn}>Sign in with google</GoogleButton>
             {/*<button className="btnGoogle">Sign in with Google</button>*/}
         </div>
     )

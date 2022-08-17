@@ -1,18 +1,19 @@
 .delete-icon{
-    height: 2.5rem;
-    width: 5rem;
+    height: 5.8vh;
+    width: 6vw;
     background-color: lightblue;
     border-color: transparent;
-    margin-left: 30rem;
+    margin-left: 30vw;
+    margin-top: 1vh;
 }
 .todo-row{
     align-items: center;
     background-color: aliceblue;
-    width: 40rem;
-    height: 3.5rem;
+    width: 50vw;
+    height: 8.2vh;
     display: flex;
     margin-left: -40px;
-    margin-top: 20px;
+    margin-top: 10vh;
     
 }
 
@@ -26,15 +27,15 @@
 .High{
     border-bottom: 2px solid red;
     width: 100%;
-    margin-top: 13px;
+    margin-top: 0.9vh;
 }
 .Medium{
     border-bottom: 2px solid yellow;
     width: 100%;
-    margin-top: 13px;
+    margin-top: 0.9vh;
 }
 .Low{
     border-bottom: 2px solid green;
     width: 100%;
-    margin-top: 13px;
+    margin-top: 0.9vh;
 }

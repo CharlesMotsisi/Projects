@@ -5,24 +5,26 @@ import { useHistory } from "react-router-dom";
 import Todo from './todo'
 import {collection, getDocs,addDoc} from 'firebase/firestore'
 import {db} from '../config/firebase'
+import {Redirect} from 'react-router-dom'
 
 function Home(props){
     const [task, setTask] = useState("");
     const [priority, setPriority] = useState("High");
 
     const focus = useRef(null);
+    
 
     useEffect(()=>{
         focus.current.focus();
     })
-    const taskToDo = (()=>{
+    /*const taskToDo = (()=>{
         const theTasks = {
             task:task,
             priority:priority
         }
 
         props.taskToDo(task,priority);
-    })
+    })*/
 
     let history = useHistory();
 
@@ -60,8 +62,6 @@ function Home(props){
         
         
     }
-
-
     return(
         <div>
             <div className="Header">

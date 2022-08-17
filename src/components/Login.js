@@ -21,7 +21,7 @@ const Login = () =>{
         signInWithEmailAndPassword(auth, email, password).then(()=>{
             history.push("/home");
         }).catch(()=>{
-            alert("Error Captured");
+            alert("Wrong username or password");
         })
        
     })
